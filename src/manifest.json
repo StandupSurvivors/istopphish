@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "istopphish",
+  "version": "1.0.0",
+  "description": "A handy chrome extension that stops phishing attemps."  ,
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/*"
+      ],
+      "js": ["web/content.js"]
+    }
+  ]
+}
