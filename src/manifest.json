@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "istopphish",
+  "version": "1.0.0",
+  "description": "AI-powered phishing detection using LLM analysis. Detects suspicious links, forms, and credential theft attempts.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles/content.css"],
+      "type": "module"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "istopphish - AI Phishing Detector"
+  },
+  "options_page": "options.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:* http://127.0.0.1:* https://api-inference.huggingface.co"
+  }
+}

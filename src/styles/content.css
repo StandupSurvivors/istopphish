@@ -1,0 +1,78 @@
+/* Content Script Styling for warnings */
+
+.istopphish-banner {
+    /* Styled inline via JavaScript */
+}
+
+.istopphish-suspicious {
+    /* Highlighted in JavaScript */
+}
+
+.istopphish-warning-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 24px;
+    max-width: 500px;
+    z-index: 9999999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.istopphish-warning-modal h2 {
+    color: #dc3545;
+    margin-bottom: 12px;
+}
+
+.istopphish-warning-modal p {
+    color: #666;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.istopphish-warning-modal-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.istopphish-warning-modal button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.istopphish-warn-btn {
+    background: #dc3545;
+    color: white;
+    flex: 1;
+}
+
+.istopphish-warn-btn:hover {
+    background: #c82333;
+}
+
+.istopphish-dismiss-btn {
+    background: #e9ecef;
+    color: #495057;
+    flex: 1;
+}
+
+.istopphish-dismiss-btn:hover {
+    background: #dee2e6;
+}
+
+.istopphish-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999998;
+}
