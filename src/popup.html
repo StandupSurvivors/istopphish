@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>istopphish - Popup</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="app">
+        <div class="popup-header">
+            <h1>🛡️ istopphish</h1>
+            <span id="status" class="status"></span>
+        </div>
+
+        <div class="content">
+            <!-- Current Page Status -->
+            <div class="section">
+                <h2>Current Page Analysis</h2>
+                <div id="loading" class="loading" style="display:none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing page...</p>
+                </div>
+                <div id="result" class="result" style="display:none;">
+                    <div id="threat-summary" class="threat-summary"></div>
+                    <div id="threats-list" class="threats-list" style="display:none;">
+                        <h3>⚠️ Detected Threats:</h3>
+                        <ul id="threats"></ul>
+                    </div>
+                    <div id="actions" class="actions" style="display:none;">
+                        <button id="whitelist-btn" class="btn btn-primary">✓ Whitelist This Domain</button>
+                        <button id="report-btn" class="btn btn-secondary">🚨 Report Phishing</button>
+                    </div>
+                </div>
+                <div id="no-threats" class="no-threats" style="display:none;">
+                    <p>✓ No threats detected on this page</p>
+                </div>
+            </div>
+
+            <!-- Backend Status -->
+            <div class="section backend-status">
+                <h3>Backend Status</h3>
+                <p id="backend-status" class="status-indicator offline">🔴 Offline</p>
+                <small id="backend-note" style="display:none;">Using local detection only</small>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="section quick-actions">
+                <button id="open-settings-btn" class="btn-icon">⚙️ Settings</button>
+                <button id="view-history-btn" class="btn-icon">📋 History</button>
+                <button id="get-help-btn" class="btn-icon">❓ Help</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+</html>

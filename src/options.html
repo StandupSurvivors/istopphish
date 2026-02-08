@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>istopphish - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <h1>🛡️ istopphish Settings</h1>
+        </div>
+
+        <div class="container">
+            <!-- General Settings -->
+            <section class="settings-section">
+                <h2>General Settings</h2>
+                
+                <div class="setting">
+                    <label>
+                        <input type="checkbox" id="enabled" onchange="saveSetting('enabled')">
+                        <span>Enable istopphish</span>
+                    </label>
+                </div>
+
+                <div class="setting">
+                    <label>
+                        <input type="checkbox" id="highlightSuspicious" onchange="saveSetting('highlightSuspicious')">
+                        <span>Highlight suspicious elements on page</span>
+                    </label>
+                </div>
+
+                <div class="setting">
+                    <label>
+                        <input type="checkbox" id="showWarnings" onchange="saveSetting('showWarnings')">
+                        <span>Show warning banners</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Detection Settings -->
+            <section class="settings-section">
+                <h2>Detection Settings</h2>
+
+                <div class="setting">
+                    <label for="sensitivity">Sensitivity Level:</label>
+                    <select id="sensitivity" onchange="saveSetting('sensitivity')">
+                        <option value="low">Low (only critical threats)</option>
+                        <option value="medium">Medium (balanced)</option>
+                        <option value="high">High (all potential threats)</option>
+                    </select>
+                </div>
+
+                <div class="setting">
+                    <label>
+                        <input type="checkbox" id="useLocalAnalysis" onchange="saveSetting('useLocalAnalysis')">
+                        <span>Use local heuristic detection</span>
+                    </label>
+                    <small>Analyzes page without sending data to backend</small>
+                </div>
+
+                <div class="setting">
+                    <label>
+                        <input type="checkbox" id="useLLMAnalysis" onchange="saveSetting('useLLMAnalysis')">
+                        <span>Use AI-powered LLM analysis</span>
+                    </label>
+                    <small>Requires backend connection and may be slower</small>
+                </div>
+            </section>
+
+            <!-- Backend Configuration -->
+            <section class="settings-section">
+                <h2>Backend Configuration</h2>
+
+                <div class="setting">
+                    <label for="backendUrl">Backend URL:</label>
+                    <input 
+                        type="text" 
+                        id="backendUrl"
+                        onchange="saveSetting('backendUrl')"
+                        placeholder="http://localhost:8000"
+                    >
+                    <small>Where to send requests for LLM analysis</small>
+                </div>
+
+                <button id="test-backend-btn" class="btn btn-secondary">
+                    🔗 Test Connection
+                </button>
+                <div id="test-result" style="display:none; margin-top: 10px;"></div>
+            </section>
+
+            <!-- Whitelist Management -->
+            <section class="settings-section">
+                <h2>Whitelist Management</h2>
+                <p>Domains in the whitelist will not be scanned for phishing.</p>
+
+                <div class="whitelist-input">
+                    <input 
+                        type="text" 
+                        id="newWhitelistDomain"
+                        placeholder="example.com"
+                    >
+                    <button id="add-whitelist-btn" class="btn btn-primary">Add</button>
+                </div>
+
+                <div id="whitelist-list"></div>
+            </section>
+
+            <!-- About -->
+            <section class="settings-section">
+                <h2>About istopphish</h2>
+                <p>
+                    istopphish is an AI-powered browser extension that helps protect you from phishing scams
+                    using advanced machine learning models.
+                </p>
+                <p>
+                    <strong>Version:</strong> 1.0.0<br>
+                    <strong>Privacy:</strong> Your data is processed locally first. Only suspicious content 
+                    is sent to our backend for LLM analysis.
+                </p>
+            </section>
+
+            <!-- Save Indicator -->
+            <div id="save-indicator" style="display:none; margin-top: 20px; padding: 10px; border-radius: 4px;"></div>
+        </div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+</body>
+</html>
