@@ -24,8 +24,8 @@ class Settings:
     # Logging
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
     
-    # LLM Configuration - Using Mistral-7B which is stable on Hugging Face Inference API
-    LLM_MODEL = os.getenv("LLM_MODEL", "mistralai/Mistral-7B-Instruct-v0.1")
+    # LLM Configuration - Using OpenAI-compatible endpoint via Hugging Face router
+    LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b:groq")
     LLM_TIMEOUT_SECONDS = int(os.getenv("LLM_TIMEOUT_SECONDS", 20))
     
     # Analysis Thresholds
